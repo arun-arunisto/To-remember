@@ -1,5 +1,5 @@
 # DRF-with-celery-redis-flower
-Running commands on terminal, first always activate your `env` file, then run your project using the below command
+This commands are used to activate celery, redis, and flower on django, djangorestframework, first always activate your `env` file, then run your project using the below command
 ```CommandPrompt
 python manage.py runserver
 ```
