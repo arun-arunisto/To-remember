@@ -23,3 +23,5 @@ The command will starts a new Redis instance using port 6380 as a replica of the
 celery -A <your_project_folder> flower --broker:redis://
 :: here i'm using redis if your using anyother platform please read the documentation of flower 
 ```
+
+!git fetch rejected error solution -> https://gist.github.com/sharbel93/ebcf0b18782573f4d95f80caa3c84acb
