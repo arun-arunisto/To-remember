@@ -27,9 +27,11 @@ celery -A <your_project_folder> flower --broker:redis://
 
 ## 11.07.2024
 # Git & Markup Language
-> For the git error [rejected] master -> master (fetch first) 
+> For the git error [rejected] master -> master (fetch first)
+ 
 **Reference** : [Click on this link and refer the github gist](https://gist.github.com/sharbel93/ebcf0b18782573f4d95f80caa3c84acb#file-how-to-solve-this-problem-of-rejected-master-master-fetch-first)
 
 > Markuplanguage reference links for customize your markdown documents
+
 **Reference Links** : [Git gist link](https://gist.github.com/pvrego/2e346674c3abbaa6366dfe86b8488dc9), [Stackoverflow link](https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file), [Git community discussion link](https://github.com/orgs/community/discussions/16925), [Git documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 
