@@ -27,6 +27,4 @@ celery -A <your_project_folder> flower --broker:redis://
 
 ## 11.07.2024
 # for the git error [rejected] master -> master (fetch first) 
-```diff
-- https://gist.github.com/sharbel93/ebcf0b18782573f4d95f80caa3c84acb#file-how-to-solve-this-problem-of-rejected-master-master-fetch-first
-```
+Reference : [Click on this link and refer the github gist](https://gist.github.com/sharbel93/ebcf0b18782573f4d95f80caa3c84acb#file-how-to-solve-this-problem-of-rejected-master-master-fetch-first)
