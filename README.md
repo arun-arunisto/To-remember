@@ -1,5 +1,7 @@
 ## 10.07.2024
+
 # DRF-with-celery-redis-flower
+
 This commands are used to activate celery, redis, and flower on django, djangorestframework, first always activate your `env` file, then run your project using the below command
 ```CommandPrompt
 python manage.py runserver
@@ -26,7 +28,9 @@ celery -A <your_project_folder> flower --broker:redis://
 ```
 
 ## 11.07.2024
+
 # Git & Markup Language
+
 > For the git error [rejected] master -> master (fetch first)
  
 **Reference** : [Click on this link and refer the github gist](https://gist.github.com/sharbel93/ebcf0b18782573f4d95f80caa3c84acb#file-how-to-solve-this-problem-of-rejected-master-master-fetch-first)
