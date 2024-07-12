@@ -38,6 +38,8 @@ The command will starts a new Redis instance using port 6380 as a replica of the
 celery -A <your_project_folder> flower --broker:redis://
 ```
 
+Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring celery tasks using flower
+
 > [!TIP]
 > Here i'm redis as my `broker-agent` if your using anyother platform please read the documentation for flower
 
