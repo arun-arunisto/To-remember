@@ -75,3 +75,15 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
   dig example.com
   ```
 
+- `whois` - Used to get the network information
+
+  ```CommandPrompt
+  whois <ip_address?
+  ```
+
+- `ipcalc` - To calculate the ip address range manually
+
+  ```CommandPrompt
+  ipcalc <ip_address>
+  ```
+
