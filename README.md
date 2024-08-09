@@ -87,3 +87,9 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
   ipcalc <ip_address>
   ```
 
+> [!NOTE]
+> You have to install `ipcalc` for that use the below command:
+
+```CommandPrompt
+sudo spt-get install ipcalc
+```
