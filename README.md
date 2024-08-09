@@ -91,5 +91,5 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
 > You have to install `ipcalc` for that use the below command:
 
 ```CommandPrompt
-sudo spt-get install ipcalc
+sudo apt-get install ipcalc
 ```
