@@ -65,7 +65,7 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
 
 - `nslookup` - Used to find the ip of a domain
   
-  ```Command
+  ```CommandPrompt
   nslookup example.com
   ```
 
