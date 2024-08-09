@@ -60,8 +60,11 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
 
 
 ## 09.08.2024
-# Networking 
+
+# Networking
+
 - `nslookup` - Used to find the ip of a domain
+  
   ```Command
   nslookup example.com
   ```
