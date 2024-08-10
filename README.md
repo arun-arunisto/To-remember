@@ -93,3 +93,9 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
 ```CommandPrompt
 sudo apt-get install ipcalc
 ```
+
+- `nmap -sn` - To find specific network range live hosts
+
+  ```CommandPrompt
+  nmap -sn <ip_address>
+  ```
