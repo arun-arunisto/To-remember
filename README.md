@@ -99,3 +99,10 @@ sudo apt-get install ipcalc
   ```CommandPrompt
   nmap -sn <ip_address>
   ```
+
+- `nmap -p- `- Command to find the ip addresses ports
+
+  ```CmmandPrompt
+  nmap -p- <ip_address>
+  ```
+  
