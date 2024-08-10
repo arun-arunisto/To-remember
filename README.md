@@ -105,4 +105,10 @@ sudo apt-get install ipcalc
   ```CmmandPrompt
   nmap -p- <ip_address>
   ```
+
+- `nmap -sV` - Command to find the ip address versions
+
+  ```CommandPrompt
+  nmap -sV <ip_address>
+  ```
   
