@@ -117,5 +117,7 @@ sudo apt-get install ipcalc
 # Image Annotation Tools
 
 - [LabelImg](https://pypi.org/project/labelImg/) : A popular open-source graphical image annotation tool. It supports the drawing of bounding boxes for object detection tasks.
+  
 - [VGG Image Annotator](https://www.robots.ox.ac.uk/~vgg/software/via/via_demo.html) : An open-source web-based tool developed by the Visual Geometry Group at the University of Oxford.
+  
 - [CVAT (Computer Vision Annotation Tool)](https://www.cvat.ai/) : An open-source, web-based tool developed by Intel. Designed for professional use, CVAT supports a wide variety of annotation tasks.
