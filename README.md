@@ -142,15 +142,9 @@ To create an app inside a particular folder like below
 ```
 project_folder
     |
-    |
-    |_____ manage.py
-    |
-    |
-    |_____ folder_1
-              |
-              |_____ sub_folder
-                         |
-                         |______ app_folder
+    |__ folder_1/sub_folder
+            |
+            |__ app_folder
 ```
 
 Use the below command
