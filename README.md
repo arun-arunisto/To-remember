@@ -121,3 +121,16 @@ sudo apt-get install ipcalc
 - [VGG Image Annotator](https://www.robots.ox.ac.uk/~vgg/software/via/via_demo.html) : An open-source web-based tool developed by the Visual Geometry Group at the University of Oxford.
   
 - [CVAT (Computer Vision Annotation Tool)](https://www.cvat.ai/) : An open-source, web-based tool developed by Intel. Designed for professional use, CVAT supports a wide variety of annotation tasks.
+
+- [Labelbox](https://labelbox.com/) : A commercial annotation platform that provides a suite of tools for labeling images, videos, and text.
+
+- [RectLabel](https://rectlabel.com/) : A MacOS application for labeling images, primarily supporting bounding box annotation.
+
+- [SuperAnnotate](https://www.superannotate.com/) : A platform that combines annotation tools with project management capabilities.
+
+- [MakeSense.AI](https://www.makesense.ai/) : A free, web-based annotation tool supporting various types of annotations.
+
+- [Roboflow](https://roboflow.com/) : A tool that not only provides annotation capabilities but also helps manage datasets and preprocess images for machine learning.
+
+> [!TIP]
+> Use the above tools for creating annotated image dataset
