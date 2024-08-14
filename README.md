@@ -134,3 +134,27 @@ sudo apt-get install ipcalc
 
 > [!TIP]
 > Use the above tools for creating annotated image dataset
+
+# Django Framework
+
+To create an app inside a particular folder like below
+
+```
+project_folder
+    |
+    |
+    |_____ manage.py
+    |
+    |
+    |_____ folder_1
+              |
+              |_____ sub_folder
+                         |
+                         |______ app_folder
+```
+
+Use the below command
+
+```bash
+python manage.py <app_folder> folder_1/sub_folder/app_folder/
+```
