@@ -152,3 +152,6 @@ Use the below command
 ```bash
 python manage.py <app_folder> folder_1/sub_folder/app_folder/
 ```
+
+> [!NOTE]
+> First you have to create the app folder before creating the app
