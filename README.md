@@ -228,3 +228,9 @@ On the above example we download the `pandas` library inside the `packages-and-l
 ```bash
 pip install --no-index --find-links=packages-and-libraries/ pandas
 ```
+
+If you want to install the dependencies using `requirements.txt` file you can use the below command:
+
+```bash
+pip install --no-index --find-links=<your-download-dir>/ -r requirements.txt
+```
