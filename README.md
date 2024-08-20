@@ -159,6 +159,8 @@ python manage.py <app_folder> folder_1/sub_folder/app_folder/
 ## 20.08.2024
 # How to use pip packages on intranet (a private network)
 
+***STEP 1:***
+
 First on a machine with internet access download the dependencies using `pip`
 
 ***syntax:***
