@@ -183,5 +183,30 @@ The above command will download the `pandas` library inside the `packages-and-li
 
 Transfer the directory that contains download packages to the offline machine
 
-> [!TIP]
+> [!NOTE]
 > Use any data transfer medium that doesn't require internet access and allowed by your organization
+
+***STEP 3:***
+
+Create and activate a virtual environment to install the packages and libraries
+
+> [!NOTE]
+> Using a virtual environment is not strictly necessary, but it is highly recommended when installing and running packages and libraries, especially in offline scenarios.
+
+To create a virtual environment use the below command:
+
+```bash
+python -m venv <your-virtual-environment-name>
+```
+
+To `activate` virtual environment on ***windows***, use the below command:
+
+```bash
+<your-venv>\Scripts\activate
+```
+
+On ***Linux/macOS***
+
+```bash
+source <your-venv>/bin/activate
+```
