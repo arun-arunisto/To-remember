@@ -178,3 +178,10 @@ pip download pandas -d packages-and-libraries/
 ```
 
 The above command will download the `pandas` library inside the `packages-and-libraries` directory.
+
+***STEP 2:***
+
+Transfer the directory that contains download packages to the offline machine
+
+> [!TIP]
+> Use any data transfer medium that doesn't require internet access and allowed by your organization
