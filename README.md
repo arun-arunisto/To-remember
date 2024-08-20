@@ -210,3 +210,21 @@ On ***Linux/macOS***
 ```bash
 source <your-venv>/bin/activate
 ```
+
+***STEP 4:***
+
+Install the packages that you already downloaded using the below command:
+
+***Syntax:***
+
+```bash
+pip install --no-index --find-links=<your-download-directory>/ <package-name>
+```
+
+***Example:***
+
+On the above example we download the `pandas` library inside the `packages-and-libraries` directory. So, to install the `pandas` the command will be look like this:
+
+```bash
+pip install --no-index --find-links=packages-and-libraries/ pandas
+```
