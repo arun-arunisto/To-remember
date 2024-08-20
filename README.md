@@ -155,3 +155,24 @@ python manage.py <app_folder> folder_1/sub_folder/app_folder/
 
 > [!NOTE]
 > First you have to create the app folder before creating the app manually
+
+## 20.08.2024
+# How to use pip packages on intranet (a private network)
+
+First on a machine with internet access download the dependencies using `pip`
+
+***syntax:***
+
+```bash
+pip download <package-name> -d <directory-path>
+```
+
+***Example:***
+
+I want to download the `pandas` library inside the directory `packages-and-libraries`, the command will be like this:
+
+```bash
+pip download pandas -d packages-and-libraries/
+```
+
+The above command will download the `pandas` library inside the `packages-and-libraries` directory.
