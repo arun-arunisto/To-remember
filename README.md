@@ -234,3 +234,69 @@ If you want to install the dependencies using `requirements.txt` file you can us
 ```bash
 pip install --no-index --find-links=<your-download-dir>/ -r requirements.txt
 ```
+
+## 10.09.2024
+
+Migrations on django for different scenario
+
+***First Scenario:*** To migrate all the contents of your project use:
+
+```Python
+Python manage.py makemigrations
+```
+
+After that,
+
+```Python
+python manage.py migrate
+```
+
+***Second Scenario:*** If you want to migrate only from a particular app use the below command
+
+```Python
+python manage.py makemigrations <app-name>
+```
+
+After that,
+
+```Python
+python manage.py migrate <app-name>
+```
+***Example:*** If i have an app named `blogs` and i want to migrate the models from that app.
+
+```Python
+python manage.py makemigrations blogs
+```
+
+After that same for `migrate` command also
+
+```Python
+python manage.py migrate blogs
+```
+
+***Third Scenario:*** If i want to migrate a particular migration file from a particular app
+
+```Python
+python manage.py makemigrations <app-name>
+```
+
+And if you make migrations it will create a python file on your `app`'s migrations directory, so you can use that filename to migrate, like below
+
+```Python
+python manage.py migrate <app-name> <file>
+```
+***Example:*** i have an app named `blogs` and i want to migrate a particular migrations file from the app, it will look like below
+
+```Python
+python manage.py makemigrations blogs
+```
+After makemigrations it will create files like `0001_initial.py` on your migrations folder on your app folder so you have to migrate using the file like below
+
+```Python
+python manage.py migrate blogs 0001
+```
+
+> [!TIP]
+> If you're getting errors while using `migrate` command you can check the ***sqlqueries*** using `python manage.py sqlmigrate <app-name> <file>`
+
+
