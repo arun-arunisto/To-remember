@@ -300,3 +300,192 @@ python manage.py migrate blogs 0001
 > If you're getting errors while using `migrate` command you can check the ***sqlqueries*** using `python manage.py sqlmigrate <app-name> <file>`
 
 
+## 20.09.2024
+
+# Daemonising Django, Celery & Celery Beat
+
+## Django
+
+#### Step 1: Create a `systemd` Service File
+
+Create a new service file for your Django project. Open a terminal and run:
+
+```bash
+sudo nano /etc/systemd/system/django.service
+```
+
+Add the following content:
+
+```ini
+[Unit]
+Description=Django Application
+After=network.target
+
+[Service]
+User=your_user
+Group=your_group
+WorkingDirectory=/path/to/your/django/project
+ExecStart=/path/to/your/virtualenv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 your_project_name.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Replace the placeholders:
+- `your_user` – Your system's username.
+- `your_group` – Your system's group name (often the same as your username).
+- `/path/to/your/django/project` – The full path to your Django project directory.
+- `/path/to/your/virtualenv` – The full path to your virtual environment.
+- `your_project_name` – The name of your Django project.
+
+This example uses **Gunicorn** as the application server. Ensure Gunicorn is installed in your virtual environment if you're using it:
+
+```bash
+pip install gunicorn
+```
+
+#### Step 2: Reload `systemd` and Start the Service
+
+Reload the `systemd` daemon and start your Django service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start django
+```
+
+To enable Django to start automatically when the system boots:
+
+```bash
+sudo systemctl enable django
+```
+
+You can check the status of your Django service with:
+
+```bash
+sudo systemctl status django
+```
+
+#### Step 3: Allow Port 8000 (Optional)
+
+If you're running your Django project on port 8000 and using a firewall like `ufw`, you may need to open the port:
+
+```bash
+sudo ufw allow 8000
+```
+
+## Celery
+
+#### Step 1: Create Celery Service File
+
+Create a new `systemd` service file for Celery:
+
+```bash
+sudo nano /etc/systemd/system/celery.service
+```
+
+Add the following configuration to the file:
+
+```ini
+[Unit]
+Description=Celery Service
+After=network.target
+
+[Service]
+Type=forking
+User=your_user
+Group=your_group
+WorkingDirectory=/path/to/your/project
+ExecStartPre=/path/to/your/virtualenv/bin/celery -A your_project_name purge -f
+ExecStart=/path/to/your/virtualenv/bin/celery -A your_project_name worker --loglevel=INFO
+ExecStop=/path/to/your/virtualenv/bin/celery multi stop worker --pidfile=/path/to/pid/celery.pid
+ExecReload=/path/to/your/virtualenv/bin/celery multi restart worker --pidfile=/path/to/pid/celery.pid
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+Replace the following placeholders:
+- `your_user` – Your system username.
+- `your_group` – Your system user group.
+- `/path/to/your/project` – The path to your Django project.
+- `/path/to/your/virtualenv` – The path to your virtual environment.
+- `your_project_name` – The name of your Django project.
+
+#### Step 2: Reload and Start the Service
+
+Reload the `systemd` daemon and start the Celery service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start celery
+```
+
+To enable Celery to start on boot:
+
+```bash
+sudo systemctl enable celery
+```
+
+You can check the status of the Celery service with:
+
+```bash
+sudo systemctl status celery
+```
+
+## Celery Beat
+
+#### Step 1: Create a `systemd` Service File for Celery Beat
+
+Create a new service file for Celery Beat:
+
+```bash
+sudo nano /etc/systemd/system/celerybeat.service
+```
+
+Add the following configuration:
+
+```ini
+[Unit]
+Description=Celery Beat Service
+After=network.target
+
+[Service]
+User=your_user
+Group=your_group
+WorkingDirectory=/path/to/your/django/project
+ExecStart=/path/to/your/virtualenv/bin/celery -A your_project_name beat --loglevel=INFO --pidfile=/var/run/celerybeat.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Replace the placeholders:
+- `your_user`: The system user that will run the service.
+- `your_group`: The group of the system user.
+- `/path/to/your/django/project`: The absolute path to your Django project.
+- `/path/to/your/virtualenv`: The absolute path to your virtual environment.
+- `your_project_name`: Your Django project name.
+
+#### Step 2: Reload `systemd` and Start the Service
+
+After creating the service file, reload `systemd` and start the Celery Beat service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start celerybeat
+```
+
+To ensure that Celery Beat starts on system boot:
+
+```bash
+sudo systemctl enable celerybeat
+```
+
+Check the status of the service:
+
+```bash
+sudo systemctl status celerybeat
+```
