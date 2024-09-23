@@ -456,7 +456,9 @@ After=network.target
 User=your_user
 Group=your_group
 WorkingDirectory=/path/to/your/django/project
-ExecStart=/path/to/your/virtualenv/bin/celery -A your_project_name beat --loglevel=INFO --pidfile=/var/run/celerybeat.pid
+ExecStart=/path/to/your/virtualenv/bin/celery -A \
+          your_project_name beat --loglevel=INFO \
+          --pidfile=/var/run/celerybeat.pid
 Restart=always
 
 [Install]
