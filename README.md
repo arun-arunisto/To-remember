@@ -325,7 +325,8 @@ After=network.target
 User=your_user
 Group=your_group
 WorkingDirectory=/path/to/your/django/project
-ExecStart=/path/to/your/virtualenv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 your_project_name.wsgi:application
+ExecStart=/path/to/your/virtualenv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 \
+          your_project_name.wsgi:application
 Restart=always
 
 [Install]
