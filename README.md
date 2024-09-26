@@ -492,3 +492,17 @@ Check the status of the service:
 ```bash
 sudo systemctl status celerybeat
 ```
+
+## 26.09.2024
+
+To kill the port in ubuntu
+
+```bash
+sudo kill -9 `sudo lsof -t -i:9001`
+```
+If this not working try this method
+
+```bash
+sudo kill -9 $(sudo lsof -t -i:9001)
+```
+
