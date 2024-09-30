@@ -506,3 +506,186 @@ If this not working try this method
 sudo kill -9 $(sudo lsof -t -i:9001)
 ```
 
+## 30.09.2024
+
+To configure **Gunicorn** for serving your Django application in a production environment, follow these steps:
+
+### 1. **Install Gunicorn**
+
+First, install Gunicorn in your Django project environment:
+
+```bash
+pip install gunicorn
+```
+
+You can add it to your `requirements.txt` or `pyproject.toml` file to ensure it gets installed whenever the project is set up.
+
+### 2. **Running Gunicorn Locally (for testing)**
+
+You can start Gunicorn to serve your Django project by running:
+
+```bash
+gunicorn myproject.wsgi:application
+```
+
+Here:
+- `myproject` is the name of your Django project folder where the `wsgi.py` file is located.
+- `application` refers to the WSGI application callable in `myproject/wsgi.py`.
+
+This command starts a basic Gunicorn server that serves your Django app.
+
+### 3. **Configuring Gunicorn with Options**
+
+To properly configure Gunicorn for production, you'll need to pass some options. These include the number of worker processes, the host and port, and logging configurations.
+
+A basic command with options might look like this:
+
+```bash
+gunicorn --workers 3 --bind 0.0.0.0:8000 myproject.wsgi:application
+```
+
+- **`--workers 3`**: Specifies the number of worker processes (a good rule of thumb is 2x the number of CPU cores).
+- **`--bind 0.0.0.0:8000`**: Specifies the host and port where Gunicorn will listen.
+- **`myproject.wsgi:application`**: This points to the WSGI application in your Django project.
+
+### 4. **Advanced Configuration with a Gunicorn Configuration File**
+
+You can create a configuration file to store all your settings, which makes management easier. This file can be a Python file.
+
+Create a `gunicorn_config.py` file in the root of your project with the following content:
+
+```python
+# gunicorn_config.py
+
+bind = "0.0.0.0:8000"  # Address to bind Gunicorn to
+workers = 3  # Number of worker processes
+accesslog = "-"  # Log access to stdout (for easy debugging)
+errorlog = "-"  # Log errors to stdout (for easy debugging)
+loglevel = "info"  # Log level: "debug", "info", "warning", "error", "critical"
+timeout = 120  # Request timeout in seconds
+```
+
+Then, run Gunicorn with the config file:
+
+```bash
+gunicorn -c gunicorn_config.py myproject.wsgi:application
+```
+
+### 5. **Configuring Gunicorn as a Systemd Service (for Automatic Start)**
+
+If you're using an Ubuntu server or a system that supports `systemd`, it's a good practice to configure Gunicorn to run as a service that starts on boot. Here’s how you can do that:
+
+1. **Create a Gunicorn Service File:**
+
+   Create a file at `/etc/systemd/system/gunicorn.service` with the following content:
+
+   ```ini
+   [Unit]
+   Description=gunicorn daemon for Django project
+   After=network.target
+
+   [Service]
+   User=your_username
+   Group=www-data
+   WorkingDirectory=/path/to/your/project
+   ExecStart=/path/to/your/venv/bin/gunicorn --workers 3 --bind unix:/path/to/your/project.sock myproject.wsgi:application
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+   - **`User`**: The user under which the service runs (replace `your_username` with your server’s user).
+   - **`WorkingDirectory`**: The full path to your Django project.
+   - **`ExecStart`**: The command to start Gunicorn (with full paths to the virtual environment and project).
+   - **`/path/to/your/project.sock`**: This is a Unix socket file Gunicorn will use. Nginx can connect to it.
+
+2. **Start and Enable the Gunicorn Service:**
+
+   After creating the service file, reload systemd, start Gunicorn, and enable it to run at boot:
+
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl start gunicorn
+   sudo systemctl enable gunicorn
+   ```
+
+3. **Check the Status of the Service:**
+
+   You can check whether Gunicorn is running correctly:
+
+   ```bash
+   sudo systemctl status gunicorn
+   ```
+
+### 6. **Configuring Nginx to Work with Gunicorn**
+
+Once Gunicorn is configured, you can set up Nginx as a reverse proxy to handle requests. Nginx will serve static files and forward requests to Gunicorn.
+
+Here’s a basic Nginx configuration for serving a Django project:
+
+1. **Install Nginx:**
+
+   ```bash
+   sudo apt update
+   sudo apt install nginx
+   ```
+
+2. **Create a Nginx Server Block:**
+
+   Create a new configuration file for your site at `/etc/nginx/sites-available/myproject`:
+
+   ```nginx
+   server {
+       listen 80;
+       server_name your_domain_or_IP;
+
+       location / {
+           proxy_pass http://unix:/path/to/your/project.sock;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+
+       location /static/ {
+           alias /path/to/your/project/static/;
+       }
+
+       location /media/ {
+           alias /path/to/your/project/media/;
+       }
+
+       # Add SSL configuration if using HTTPS
+   }
+   ```
+
+3. **Enable the Nginx Configuration:**
+
+   Create a symbolic link to enable the configuration:
+
+   ```bash
+   sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
+   ```
+
+4. **Test the Nginx Configuration:**
+
+   Make sure there are no syntax errors in the configuration:
+
+   ```bash
+   sudo nginx -t
+   ```
+
+5. **Restart Nginx:**
+
+   After confirming that the configuration is correct, restart Nginx to apply the changes:
+
+   ```bash
+   sudo systemctl restart nginx
+   ```
+
+### 7. **Final Steps:**
+- Ensure you’ve collected static files (`python manage.py collectstatic`).
+- Make sure your Django `ALLOWED_HOSTS` includes your domain or IP address.
+- Secure your site by configuring SSL certificates (e.g., with Let’s Encrypt).
+
+Once these steps are completed, your Django app should be ready and running behind Nginx with Gunicorn!
