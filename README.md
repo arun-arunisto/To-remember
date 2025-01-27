@@ -694,8 +694,10 @@ Once these steps are completed, your Django app should be ready and running behi
 
 ```Python
 import torch
+import torchvision
 
-print("CUDA available:", torch.cuda.is_available())  # Should return True
-print("CUDA device count:", torch.cuda.device_count())  # Should be >0
-print("CUDA device name:", torch.cuda.get_device_name(0))  # Prints the name of the GPU
+print("Torch version:", torch.__version__)
+print("Torchvision version:", torchvision.__version__)
+print("CUDA available:", torch.cuda.is_available())
+print("CUDA version:", torch.version.cuda)
 ```
