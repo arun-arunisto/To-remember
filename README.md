@@ -689,3 +689,13 @@ Here’s a basic Nginx configuration for serving a Django project:
 - Secure your site by configuring SSL certificates (e.g., with Let’s Encrypt).
 
 Once these steps are completed, your Django app should be ready and running behind Nginx with Gunicorn!
+
+## To check the GPU
+
+```Python
+import torch
+
+print("CUDA available:", torch.cuda.is_available())  # Should return True
+print("CUDA device count:", torch.cuda.device_count())  # Should be >0
+print("CUDA device name:", torch.cuda.get_device_name(0))  # Prints the name of the GPU
+```
