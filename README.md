@@ -701,3 +701,76 @@ print("Torchvision version:", torchvision.__version__)
 print("CUDA available:", torch.cuda.is_available())
 print("CUDA version:", torch.version.cuda)
 ```
+---
+# 24.04.2025 
+---
+
+### 📘 DateTime Difference Calculation
+
+---
+
+#### 🕒 Example Datetimes
+
+```python
+start_datetime = '2017-05-04 08:00:00'
+end_datetime = '2017-05-04 09:30:00'
+```
+
+---
+
+### 📐 Step 1: Convert Strings to `datetime` Objects
+
+Use Python's `datetime.strptime()` to convert string to `datetime`.
+
+```python
+from datetime import datetime
+
+start = datetime.strptime(start_datetime, '%Y-%m-%d %H:%M:%S')
+end = datetime.strptime(end_datetime, '%Y-%m-%d %H:%M:%S')
+```
+
+---
+
+### 🧮 Step 2: Calculate Time Difference
+
+```python
+difference = end - start
+```
+
+This returns a `timedelta` object.
+
+---
+
+### 📏 Step 3: Convert to Seconds, Minutes, Hours
+
+#### 🧾 Total Seconds
+
+```python
+total_seconds = difference.total_seconds()
+```
+
+#### 🧾 Total Minutes
+
+```python
+total_minutes = total_seconds / 60
+```
+
+#### 🧾 Total Hours
+
+```python
+total_hours = total_seconds / 3600
+```
+
+---
+
+### ✅ Final Output
+
+For the above example:
+
+```text
+Seconds: 5400.0
+Minutes: 90.0
+Hours: 1.5
+```
+
+---
