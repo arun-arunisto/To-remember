@@ -774,3 +774,34 @@ Hours: 1.5
 ```
 
 ---
+
+## To check port is running or not
+
+#### ✅ On **Linux/macOS**:
+```bash
+sudo lsof -i :<port_number>
+```
+Example:
+```bash
+sudo lsof -i :8000
+```
+
+Or:
+```bash
+netstat -tuln | grep :<port_number>
+```
+
+Or with `ss` (faster replacement for netstat):
+```bash
+ss -tuln | grep :<port_number>
+```
+
+#### ✅ On **Windows**:
+```cmd
+netstat -a -n | findstr :<port_number>
+```
+
+Example:
+```cmd
+netstat -a -n | findstr :8000
+```
