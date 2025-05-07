@@ -816,3 +816,4 @@ After fetching
 ```bash
 git merge <orgin-branch-name-from-the-logs>
 ```
+---
