@@ -806,3 +806,13 @@ Example:
 netstat -a -n | findstr :8000
 ```
 ---
+## 07.05.2025
+### Git Fetch & Merge
+
+```bash
+git fetch origin <branch-name>
+```
+After fetching 
+```bash
+git merge <orgin-branch-name-from-the-logs>
+```
