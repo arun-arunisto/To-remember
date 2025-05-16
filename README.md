@@ -817,3 +817,19 @@ After fetching
 git merge <orgin-branch-name-from-the-logs>
 ```
 ---
+## 16.05.2025
+
+To restore the postgresql .sql file
+
+```bash
+psql -U <username> -d <yiur_database_name> -f <path_to_sql_file>
+```
+If it didnt work try with this
+```bash
+pg_restore -U <username> -d <your_db_name> <path_to_sql_file>
+```
+Again if youre facing some issues add flag verbose like below
+```bash
+pg_restore -U <username> -d <your_db_name> --clean --no-owner -v <path_to_your_sql>
+```
+----
