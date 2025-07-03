@@ -880,3 +880,5 @@ These errors can be filtered out by sending the error stream denoted by number `
 ```bash
 find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
 ```
+
+---
