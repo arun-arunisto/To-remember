@@ -890,3 +890,11 @@ head -n 10 data.txt
 ```
 
 ---
+
+We know the password is next to the word “millionth” in the file. We can look for this pattern by using the `grep` command:
+
+```bash
+grep millionth data.txt 
+```
+
+---
