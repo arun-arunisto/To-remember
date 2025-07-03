@@ -906,3 +906,13 @@ cat data.txt | sort | uniq -u
 Use `uniq` command with the `-u` flag to print the unique line. Uniq command expects the repeating (similar) lines to be next to each other (adjacent) so we need to sort our data before we can find the unique line.
 
 For sorting we can use the `sort` command which will `sort` the data in the file line wise. Finally we can combine all these commands together into an one liner using the `|` (pipe) operator
+
+---
+
+```bash
+cat data.txt | strings -e s | grep ==
+```
+
+Human readable string in an file can be found using the `strings` command. The `-e` flag is used to specify the character encoding. We are assuming the human readable line is ASCII text so we use “s” for the encoding type.
+
+We also know that the line with the password starts with a few “=” characters. We can look for this pattern in the file using the `grep` command.
