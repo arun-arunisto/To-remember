@@ -840,3 +840,18 @@ To find file who’s content is in Human Readable format. This check can be perf
 ```bash
 file ./*
 ```
+---
+
+To search for the file that we require using the properties that are specified in the question we can make use of the find command.
+
+```bash
+find . -type f -size 1033c -not -executable -exec file {} + | grep ASCII
+```
+
+### Command Explanation
+* . : Search the current working directory only
+* -type f : Look for files only (Exclude Directories)
+* -size 1033c : Look for files that are exactly 1033 bytes in size (Find uses “c” to represent bytes)
+* -not -executable : Find only non executable files
+* -exec file {} + : Execute the file command on all the results returns by find
+Note : {} is an placeholder for the location where the names of the files found by find is going to be substituted. The “+” sign is used to terminate the statement
