@@ -834,6 +834,7 @@ pg_restore -U <username> -d <your_db_name> --clean --no-owner -v <path_to_your_s
 ```
 ----
 ## 02.07.2025
+## Linux Commands 
 
 To find file who’s content is in Human Readable format. This check can be performed using the `file` command. File command returns the type of data that is found in the file
 
@@ -856,3 +857,26 @@ find . -type f -size 1033c -not -executable -exec file {} + | grep ASCII
 * -exec file {} + : Execute the file command on all the results returns by find
 
 **Note : {}** is an placeholder for the location where the names of the files found by find is going to be substituted. The “+” sign is used to terminate the statement
+
+---
+
+Since we don't know where the file is we will have to search the entire server. We know some properties about the file that we can use to try and locate the file.
+
+```bash
+find / -type f -user bandit7 -group bandit6 -size 33c
+```
+
+## Command Explanation
+* / : Search the entire server (/ is the root directory on Linux similar to the C:/ Drive on Windows)
+* -type f : Search only for files (Exclude Directories)
+* -user bandit7 : Search for files which are owned by user bandit7
+* -group bandit6 : Search for files that belongs to the group bandit6
+* -size 33c : Look for files that are exactly 33 bytes in size (Find uses “c” to represent size in bytes)
+
+This command alone is sufficient to get the result that we are looking for but since we are scanning the entire server we are going to encounter files what we do not have permission. It will raise an *permission denied* error:
+
+These errors can be filtered out by sending the error stream denoted by number `2` to `/dev/null` . NULL is a special device on Linux which destroys all that data that is send to it.
+
+```bash
+find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
+```
