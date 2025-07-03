@@ -882,3 +882,11 @@ find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
 ```
 
 ---
+
+`head` and `tail` command we used to get the first or last lines data from txt file like below:
+
+```bash
+head -n 10 data.txt
+```
+
+---
