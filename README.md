@@ -924,3 +924,11 @@ cat data.txt | base64 -d
 ```
 
 Decoding this data using the `base64` command that is present on *nix systems. The `-d` flag is used to decode the data.
+
+---
+
+```bash
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+
+The `tr` command is used to translate/ transform data from one form to another.
