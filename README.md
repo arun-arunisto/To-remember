@@ -898,3 +898,11 @@ grep millionth data.txt
 ```
 
 ---
+
+```bash
+cat data.txt | sort | uniq -u
+```
+
+Use `uniq` command with the `-u` flag to print the unique line. Uniq command expects the repeating (similar) lines to be next to each other (adjacent) so we need to sort our data before we can find the unique line.
+
+For sorting we can use the `sort` command which will `sort` the data in the file line wise. Finally we can combine all these commands together into an one liner using the `|` (pipe) operator
