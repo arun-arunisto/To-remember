@@ -866,7 +866,7 @@ Since we don't know where the file is we will have to search the entire server. 
 find / -type f -user bandit7 -group bandit6 -size 33c
 ```
 
-## Command Explanation
+### Command Explanation
 * / : Search the entire server (/ is the root directory on Linux similar to the C:/ Drive on Windows)
 * -type f : Search only for files (Exclude Directories)
 * -user bandit7 : Search for files which are owned by user bandit7
