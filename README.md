@@ -833,3 +833,10 @@ Again if youre facing some issues add flag verbose like below
 pg_restore -U <username> -d <your_db_name> --clean --no-owner -v <path_to_your_sql>
 ```
 ----
+## 02.07.2025
+
+To find file who’s content is in Human Readable format. This check can be performed using the `file` command. File command returns the type of data that is found in the file
+
+```bash
+file ./*
+```
