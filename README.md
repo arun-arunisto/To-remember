@@ -916,3 +916,11 @@ cat data.txt | strings -e s | grep ==
 Human readable string in an file can be found using the `strings` command. The `-e` flag is used to specify the character encoding. We are assuming the human readable line is ASCII text so we use “s” for the encoding type.
 
 We also know that the line with the password starts with a few “=” characters. We can look for this pattern in the file using the `grep` command.
+
+___
+
+```bash
+cat data.txt | base64 -d
+```
+
+Decoding this data using the `base64` command that is present on *nix systems. The `-d` flag is used to decode the data.
