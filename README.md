@@ -932,3 +932,54 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
 The `tr` command is used to translate/ transform data from one form to another.
+
+---
+
+## 10.09.2025
+
+Connecting local postgresql server to another machine in the same netwrok.
+
+### On the Server Machine (where postgresql is running):
+
+1. Allow postgresql to listen all ips:
+
+   - Open the PostgreSQL config file (postgresql.conf). (Here i am using ubuntu machine. location of the file depends on the os)
+
+   ```bash
+   /etc/postgresql/<version>/main/postgresql.conf     # Ubuntu/Debian
+   ```
+
+   - find the line.
+
+   ```bash
+   #listen_addresses = 'localhost'
+   ```
+
+   - change the line.
+
+   ```bash
+   listen_addresses = '*'
+   ```
+
+   - save and exit.
+
+2. Allow connections from your network
+
+   - Open `pg_hba.conf`, usually in the same folder as `postgresql.conf`.
+
+   - Add a line like this (replace 192.168.1.0/24 with your network range):
+
+   ```bash
+   host    all             all             192.168.1.0/24          md5
+   ```
+
+   This will allow the machines to connect database with username and password.
+
+3. Restart the postgresql
+
+   ```bash
+   sudo systemctl restart postgresql
+   ```
+
+---
+     
