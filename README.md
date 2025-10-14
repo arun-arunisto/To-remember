@@ -58,6 +58,8 @@ Then navigate to [http://127.0.0.1:5555/](http://127.0.0.1:5555/) for monitoring
 
 **Reference** : [Git gist link](https://gist.github.com/pvrego/2e346674c3abbaa6366dfe86b8488dc9), [Stackoverflow link](https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file), [Git community discussion link](https://github.com/orgs/community/discussions/16925), [Git documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
 
+(Additional information (14/10/2025) - for getting the result in flower dashboard, return the result value inside the tasks functions)
+
 
 ## 09.08.2024
 
