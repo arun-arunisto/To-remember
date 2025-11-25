@@ -13,6 +13,11 @@ To run the celery worker open new terminal with current environment activate and
 ```CommandPrompt
 celery -A <your_project_name> worker -l info
 ```
+or
+if the above command didn't work, use the below command:
+```
+celery -A rb_backend worker --pool=threads --concurrency=16 -l info
+```
 
 To run the celery beat open new terminal on the same directory with environment activate, and run the below command
 
