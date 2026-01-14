@@ -25,3 +25,14 @@ To find the hidden files, use the following command:
 ```
 ls -a
 ```
+
+### Level 5
+There will be more than 10 files, and in one file password is saved as 'ASCII Text.' We need to find that:
+```
+ls -la
+```
+The above command will print all the files:
+```
+file ./*
+```
+Use this to find the content type
