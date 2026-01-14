@@ -1,3 +1,1 @@
-## BANDIT
-
-### LEVEL 0
+### Level 0
