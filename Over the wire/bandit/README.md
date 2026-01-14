@@ -19,3 +19,9 @@ To read `--spaces in this filename--` this file `cat ./--spaces in this filename
 ```
 cat ./"--spaces in this filename--"
 ```
+
+### Level 4
+To find the hidden files, use the following command:
+```
+ls -a
+```
