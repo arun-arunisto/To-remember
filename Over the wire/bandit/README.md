@@ -80,3 +80,9 @@ The above command covered all the hints
 ```
 cat data.txt | grep millionth
 ```
+
+### Level 8 -> 9
+
+```
+sort data.txt | uniq -u
+```
