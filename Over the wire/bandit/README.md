@@ -37,3 +37,27 @@ file ./*
 ```
 Use this to find the content type
 
+
+### Level 5 -> 6
+
+HINTS: 
+
+Human-readable
+
+1033 bytes
+
+not executable
+
+---
+- Human-readable
+
+```
+file */{.,}* | grep "ASCII text" | grep -v ', with very long lines'
+```
+
+- 1033 bytes
+
+```
+du -b -a | grep 1033
+```
+
