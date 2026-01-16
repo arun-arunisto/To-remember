@@ -74,3 +74,9 @@ owned by group bandit6
 find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 ```
 The above command covered all the hints
+
+### Level 7 -> 8
+
+```
+cat data.txt | grep millionth
+```
