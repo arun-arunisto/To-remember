@@ -60,4 +60,17 @@ file */{.,}* | grep "ASCII text" | grep -v ', with very long lines'
 ```
 du -b -a | grep 1033
 ```
+### Level 6 -> 7
 
+HINTS:
+
+owned by user bandit7
+
+owned by group bandit6
+
+33 bytes in size
+
+```
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+```
+The above command covered all the hints
