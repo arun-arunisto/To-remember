@@ -87,7 +87,12 @@ cat data.txt | grep millionth
 sort data.txt | uniq -u
 ```
 
-Level 9 -> 10
+### Level 9 -> 10
 ```
 strings data.txt | grep ===
+```
+### Level 10 -> 11
+To decode base64
+```
+base64 -d data.txt
 ```
