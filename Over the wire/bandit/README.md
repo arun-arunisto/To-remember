@@ -115,6 +115,6 @@ scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
 ```
 Then we used the `ssh` command to access the next level.
 ```
-ssh -i <ssh_privete_key> <user>@<host> -P <port>
+ssh -i <ssh_privete_key> <user>@<host> -p <port>
 ```
 
