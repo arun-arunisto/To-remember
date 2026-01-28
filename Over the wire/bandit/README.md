@@ -133,3 +133,13 @@ the actual command is:
 nc localhost 30000
 ```
 and put the password that we got from the `/etc/`.
+
+### Level 15 -> 16
+Use the `openssl` to connect with the localhost and the syntax is:
+```
+openssl s_client <host>:<port>
+```
+```
+openssl s_client localhost:30001
+```
+then paste the password of bandit15
