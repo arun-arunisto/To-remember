@@ -100,3 +100,7 @@ base64 -d data.txt
 ```
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
+### Level 12 -> 13
+```
+https://mayadevbe.me/posts/overthewire/bandit/level13/
+```
