@@ -117,5 +117,5 @@ Then we used the `ssh` command to access the next level.
 ```
 ssh -i <ssh_privete_key> <user>@<host> -p <port>
 ```
-before that use `chmod 7000 sshkey.private` to accessible
+before that use `chmod 700 sshkey.private` to accessible
 
