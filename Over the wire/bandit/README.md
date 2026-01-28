@@ -119,3 +119,17 @@ ssh -i <ssh_privete_key> <user>@<host> -p <port>
 ```
 before that use `chmod 700 sshkey.private` to accessible
 
+### Level 14 -> 15
+In the previous level they mentioned the password in the `/etc/bandit_pass/bnadit14`, so run the following command to retrieve the password:
+```
+cat /etc/bandit_pass/bandit14
+```
+then used `nc` or `netcat` to communicate over the network:
+``` syntax
+nc <host> <port>
+```
+the actual command is:
+```
+nc localhost 30000
+```
+and put the password that we got from the `/etc/`.
