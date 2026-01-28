@@ -86,3 +86,8 @@ cat data.txt | grep millionth
 ```
 sort data.txt | uniq -u
 ```
+
+Level 9 -> 10
+```
+strings data.txt | grep ===
+```
