@@ -104,3 +104,17 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 https://mayadevbe.me/posts/overthewire/bandit/level13/
 ```
+### Level 13 -> 14
+used `scp` to transfer the data over the network to the remote
+``` syntax
+scp -P <port> <user>@<IP>:<remotefilepath> <localfilepath>
+```
+Actual code
+```
+scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+```
+Then we used the `ssh` command to access the next level.
+```
+ssh -i <ssh_privete_key> <user>@<host> -P <port>
+```
+
