@@ -96,3 +96,7 @@ To decode base64
 ```
 base64 -d data.txt
 ```
+### Level 11 -> 12
+```
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
